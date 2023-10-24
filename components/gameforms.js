@@ -53,7 +53,7 @@ function GameForms() {
 
                         <div class="gap-5 w-128 h-48 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                             <a href="#" class="mt-10 ">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">"{winner} player " won the game!</h5>
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{winner} player won the game!</h5>
                             </a>
                             <a onClick={() => {
                                 restart();
