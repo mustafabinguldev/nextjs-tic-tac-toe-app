@@ -9,8 +9,11 @@ export const GameProvider = ({ children }) => {
     const [user, setUser] = useState("X");
     const [winner, setWinner] = useState("");
     const [gameData, setGameData] = useState([{ value: "" }, { value: "" }, { value: "" }, { value: "" }, { value: "" },
+
     { value: "" }, { value: "" }, { value: "" }, { value: "" }])
 
+    const [scores, setScores] = useState({X:0,O:0})
+    
     const controlFunction = () => {
 
         const winningCombos = [[0, 1, 2], [0, 3, 6], [0, 4, 8], [1, 4, 7], [2, 5, 8], [2, 4, 6], [3, 4, 5], [6, 7, 8]]
@@ -19,10 +22,12 @@ export const GameProvider = ({ children }) => {
 
             if (gameData[scenario[0]].value == "X" && gameData[scenario[1]].value == "X" && gameData[scenario[2]].value == "X") {
                 setWinner("X")
+                setScores({...scores, X: scores.X+1})
             }
 
             else if (gameData[scenario[0]].value == "O" && gameData[scenario[1]].value == "O" && gameData[scenario[2]].value == "O") {
                 setWinner("O")
+                setScores({...scores, O: scores.O+1})
             }
 
         });
@@ -56,7 +61,7 @@ export const GameProvider = ({ children }) => {
 
             }
 
-        },
+        },scores: scores,
         getValue: (id) => {
             return gameData[id-1].value;
         }, user: user
