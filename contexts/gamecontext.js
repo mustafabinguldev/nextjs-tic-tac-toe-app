@@ -61,6 +61,10 @@ export const GameProvider = ({ children }) => {
 
             }
 
+        },reload: () => {
+           
+            setScores({X:0, O:0})
+
         },scores: scores,
         getValue: (id) => {
             return gameData[id-1].value;
